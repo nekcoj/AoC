@@ -25,10 +25,10 @@ let stacks = {
 
 async function start() {
   await readData();
-  moveCrates();
+  moveCratesPart2();
 }
 
-function moveCrates() {
+function moveCratesPart1() {
   let moves = [];
   data.forEach((line) => {
     moves.push(
@@ -46,6 +46,40 @@ function moveCrates() {
       stacks[move[1]].length = stacks[move[1]].length - 1;
     }
   });
+  let topStack = [];
+  Object.values(stacks).forEach((stack) => {
+    topStack.push(stack[stack.length - 1]);
+  });
+  console.log(topStack.join(""));
+}
+
+function moveCratesPart2() {
+  let moves = [];
+  data.forEach((line) => {
+    moves.push(
+      line
+        .replace(
+          /(\w+ )(?<first>\d+)( \w+ )(?<second>\d+)( \w+ )(?<third>\d+)/gm,
+          "$<first> $<second> $<third>"
+        )
+        .split(" ")
+    );
+  });
+  moves.forEach((move) => {
+    let bla = stacks[move[1]].slice(
+      stacks[move[1]].length - move[0],
+      stacks[move[1].length - 1]
+    );
+    console.log(bla);
+    stacks[move[2]].push(
+      ...stacks[move[1]].slice(
+        stacks[move[1]].length - move[0],
+        stacks[move[1].length - 1]
+      )
+    );
+    stacks[move[1]].length -= move[0];
+  });
+  console.log(stacks);
   let topStack = [];
   Object.values(stacks).forEach((stack) => {
     topStack.push(stack[stack.length - 1]);
