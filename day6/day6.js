@@ -9,26 +9,21 @@ async function readData() {
 async function start() {
   await readData();
   console.log(data);
-  getFirstMarker();
+  getFirstMarker(4);
+  getFirstMarker(14);
 }
 
 start();
 
-function getFirstMarker() {
+function getFirstMarker(numberOfUniqueCharacters) {
   let marker = [];
   let stream = data[0].split("");
   console.log(stream);
   stream.forEach((char, index) => {
-    if (index >= 13) {
-      let set = Array.from(
-        new Set([
-          stream[index - 3],
-          stream[index - 2],
-          stream[index - 1],
-          stream[index],
-        ])
-      );
-      if (set.length === 14) {
+    if (index >= numberOfUniqueCharacters - 1) {
+      let spl = stream.slice(index - numberOfUniqueCharacters + 1, index + 1);
+      let set = Array.from(new Set(spl));
+      if (set.length === numberOfUniqueCharacters) {
         marker.push([char, index + 1]);
       }
     }
