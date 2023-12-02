@@ -1,4 +1,4 @@
-const fileReader = require("../utils/fileReader.js");
+const fileReader = require("../../utils/fileReader.js");
 
 let data = null;
 
