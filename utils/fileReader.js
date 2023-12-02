@@ -13,4 +13,8 @@ async function fileReader(filename) {
   return data;
 }
 
-module.exports = fileReader;
+async function readData(year, day) {
+  return await fileReader(`./${year}/day${day}/input`);
+}
+
+module.exports = {fileReader, readData};
