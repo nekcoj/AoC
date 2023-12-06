@@ -13,6 +13,7 @@ async function fileReader(filename) {
   return data;
 }
 
+// Run from root of project or change the relative path
 async function readData(year, day) {
   return await fileReader(`./${year}/day${day}/input`);
 }
