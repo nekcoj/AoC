@@ -9,13 +9,16 @@ let cubes = {
 }
 let records = null;
 let possibleGameIds = [];
+let power = [];
 
 async function start() {
 	data = await readData(2023, 2);
 	//console.log(data);
 	records = splitString();
-	checkGames();
-	console.log(possibleGameIds.reduce((prev, curr) => prev + curr, 0));
+	// checkGames();
+	//console.log(possibleGameIds.reduce((prev, curr) => prev + curr, 0));
+	checkPow();
+	console.log(power.reduce((prev, curr) => prev + curr, 0));
 }
 
 function splitString() {
@@ -51,5 +54,21 @@ function checkGames() {
 	}
 }
 
+
+function checkPow() {
+	for (let i = 0; i < records.length; i++) {
+		let handPossibility = {
+			red: 0,
+			green: 0,
+			blue: 0
+		};
+		records[i].forEach(game => {
+			for (const hand of game) {
+				parseInt(hand[0]) >= handPossibility[hand[1]] ? handPossibility[hand[1]] = parseInt(hand[0]) : null;
+			}
+		});
+		power.push(Object.values(handPossibility).reduce((prev, curr) => prev * curr, 1));
+	}
+}
 
 start();
