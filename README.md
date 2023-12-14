@@ -12,3 +12,4 @@
 
 > - ##### [Day 1](https://github.com/nekcoj/AoC/tree/master/2023/day1): Javascript
 > - ##### [Day 2](https://github.com/nekcoj/AoC/tree/master/2023/day2): Javascript
+> - ##### [Day 3](https://github.com/nekcoj/AoC/tree/master/2023/day3): Javascript
