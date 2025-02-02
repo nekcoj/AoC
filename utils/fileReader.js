@@ -14,8 +14,8 @@ async function fileReader(filename) {
 }
 
 // Run from root of project or change the relative path
-async function readData(year, day) {
-  return await fileReader(`./${year}/day${day}/input`);
+async function readData(year, day, sample = false) {
+  return await fileReader(`./${year}/day${day}/input${sample ? '_sample' : ''}`);
 }
 
 module.exports = {fileReader, readData};

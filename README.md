@@ -1,5 +1,8 @@
 # Advent of Code
 
+## AoC 2024
+> - ##### [Day 1](https://github.com/nekcoj/AoC/tree/master/2024/day1): Javascript
+
 ## AoC 2023.
 
 > - ##### [Day 1](https://github.com/nekcoj/AoC/tree/master/2023/day1): Javascript
